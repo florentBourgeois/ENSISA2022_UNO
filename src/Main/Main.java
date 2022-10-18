@@ -2,6 +2,7 @@ package Main;
 
 import diag2code.Card;
 import diag2code.Deck;
+import diag2code.Table;
 
 import java.util.ArrayList;
 import java.util.List;
