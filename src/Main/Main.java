@@ -1,9 +1,9 @@
 package Main;
 
-import diag2code.Card;
-import diag2code.Deck;
-import diag2code.Player;
-import diag2code.Table;
+import code2diag.BasicCardDealer;
+import code2diag.CardDealerInterface;
+import code2diag.PlayCardProcessor;
+import diag2code.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,8 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        basicGame();
-        //completeGAme();
+        //basicGame();
+        completeGAme();
     }
 
     public static void basicGame() {
@@ -79,26 +79,27 @@ public class Main {
 
 
         Table table = new Table(deck);
-        //CardDealerInterface cardDealer = new CardDealer();
+
 
         Player pascal = table.playerSits("pascal");
         table.playerSits("Jack");
         table.playerSits("Fred");
         Player mike = table.playerSits("Mike");
 
-        pascal.getHand().pickedACard(deck.drawACard());//cardDealer.pickCard());//get rouge 0
-        mike.getHand().pickedACard(deck.drawACard());//cardDealer.pickCard());  //get jaune 1
-        mike.getHand().pickedACard(deck.drawACard());//cardDealer.pickCard());  //get jaune 2
-        mike.getHand().pickedACard(deck.drawACard());//cardDealer.pickCard());  //get jaune 3
-        mike.getHand().pickedACard(deck.drawACard());//cardDealer.pickCard());  //get bleu 0
+        CardDealerInterface cardDealer = new BasicCardDealer(deck);
+        pascal.getHand().pickedACard(cardDealer.pickCard());//get rouge 0
+        mike.getHand().pickedACard(cardDealer.pickCard());  //get jaune 1
+        mike.getHand().pickedACard(cardDealer.pickCard());  //get jaune 2
+        mike.getHand().pickedACard(cardDealer.pickCard());  //get jaune 3
+        mike.getHand().pickedACard(cardDealer.pickCard());  //get bleu 0
 
 
-/*
+
         PlayCardProcessor playCardProcessor = new PlayCardProcessor(table, cardDealer);
-        System.out.println(playCardProcessor.playCard(mike, card1));
-        System.out.println(playCardProcessor.playCard(mike, card2));
-        System.out.println(playCardProcessor.playCard(mike, card0));
-        System.out.println(playCardProcessor.playCard(pascal, card0));
+        System.out.println(playCardProcessor.handlePlayCard(mike, card1)); // ok
+        System.out.println(playCardProcessor.handlePlayCard(mike, card2)); // not right player
+        System.out.println(playCardProcessor.handlePlayCard(mike, card0)); // does not have card
+        System.out.println(playCardProcessor.handlePlayCard(pascal, card0)); // not valid card (color + value)
 
 //*/
     }

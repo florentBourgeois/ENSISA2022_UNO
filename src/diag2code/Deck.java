@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Deck implements LastPlayedCardProviderITF{
+
     private final LinkedList<Card> draw = new LinkedList<>();;
     private final LinkedList<Card> played = new LinkedList<>();;
 

@@ -13,6 +13,10 @@ public class Table {
         this.lastPlayedCardProvider = lastPlayedCardProvider;
     }
 
+    public int getNumberOfPlayer(){
+        return this.players.size();
+    }
+
     public Player playerSits(String name) {
         Player player = new Player(name, this);
         this.players.add(player);
