@@ -10,7 +10,7 @@ public class Hand {
     public Hand() {
     }
 
-    public void pickedCard(Card card){
+    public void pickedACard(Card card){
         cards.add(card);
     }
 

@@ -21,4 +21,12 @@ public class Player {
     public int getNumberOfCards() {
         return this.hand.nbrOfCards();
     }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", hand=" + hand +
+                '}';
+    }
 }
