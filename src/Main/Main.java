@@ -1,5 +1,11 @@
 package Main;
 
+import diag2code.Card;
+import diag2code.Deck;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -8,20 +14,21 @@ public class Main {
 
 
     basicGame(){
-        Deck deck = new Deck();
+        List<Card> cards = new ArrayList<>();
         Card card0 = new Card("rouge", 0);
-        deck.addCard(card0);
+        cards.add(card0);
         Card card1 = new Card("jaune", 1);
-        decl.addCard(card1);
+        cards.add(card1);
         Card card2 = new Card("jaune", 2);
-        deck.addCard(card2);
+        cards.add(card2);
         Card card3 = new Card("jaune", 3);
-        deck.addCard(card3);
+        cards.add(card3);
 
         for (int i = 0; i < 100; i++) {
-            deck.addCard(new Card("bleu", String.valueOf(i)));
+            cards.add(new Card("bleu", String.valueOf(i)));
         }
-        return deck;
+
+        Deck deck = new Deck(cards);
 
 
 
