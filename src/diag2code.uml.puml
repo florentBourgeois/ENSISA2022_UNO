@@ -1,0 +1,64 @@
+# UNO classes
+
+
+
+@startuml
+skinparam nodesep 100
+skinparam ranksep 50
+
+class Table {  
+  getNumberOfPlayer(): int
+  playerSits(name: String): Player
+  GetSetLastPlayer()
+  
+  getPlayerPosition(Player): int
+  getLastPlayedCard(): Card
+
+  getPlayerAfter(p: Player)
+  
+}
+
+class Player{
+  name : String
+  Player(name: String, t: Table)
+  
+  getHand(): Hand
+  getName(): String
+  getNumberOfCards(): int
+}
+
+class Hand{
+  pickedACard(c:Card)
+  playCard(c:Card)
+  holdsCard(c:Card): boolean
+}
+
+
+class Card {
+  color : UnoColorEnum
+  value : String
+}
+
+class Deck {
+  Deck(List<Card>) : Deck
+  drawACard(): Card
+  addCardToPlayed(c: Card)
+  getLastPlayedCard(): Card
+}
+
+interface LastPlayedCardProviderITF {
+  getLastPlayedCard(): Card
+}
+
+Table o-> "*"Player
+Table *-> "lastPlayer" Player
+Table "1" <-* Player
+Player -> "1" Hand
+Hand --> "*" Card
+
+Deck -> " * played\n * draw" Card
+
+Table --> LastPlayedCardProviderITF
+LastPlayedCardProviderITF <|.. Deck
+
+@enduml
