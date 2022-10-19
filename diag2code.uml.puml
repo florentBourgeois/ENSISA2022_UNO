@@ -6,22 +6,20 @@
 skinparam nodesep 100
 skinparam ranksep 50
 
-class Table {  
+class Table {
+  Table(LastPlayedCardProviderITF)
   getNumberOfPlayer(): int
   playerSits(name: String): Player
-  GetSetLastPlayer()
-  
+  getLastPlayer(): Player
+  setLastPlayer(Player)
   getPlayerPosition(Player): int
   getLastPlayedCard(): Card
-
-  getPlayerAfter(p: Player)
-  
 }
 
 class Player{
-  name : String
+  - name : String
+
   Player(name: String, t: Table)
-  
   getHand(): Hand
   getName(): String
   getNumberOfCards(): int
@@ -31,12 +29,20 @@ class Hand{
   pickedACard(c:Card)
   playCard(c:Card)
   holdsCard(c:Card): boolean
+  nbrOfCards(): int
 }
 
 
 class Card {
-  color : UnoColorEnum
-  value : String
+  + color : String
+  + value : String
+
+  Card(color: String, value: String)
+
+  getColor(): String
+  setColor(String)
+  getValue(): String
+  setValue(String)
 }
 
 class Deck {

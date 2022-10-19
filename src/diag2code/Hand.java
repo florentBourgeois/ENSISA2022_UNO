@@ -7,19 +7,12 @@ public class Hand {
 
     private final List<Card> cards = new ArrayList<>();
 
-    public Hand() {
-    }
-
     public void pickedACard(Card card){
         cards.add(card);
     }
 
-    public Card playCard(Card card){
-        int index = this.cards.indexOf(card);
-        if(index == -1){ // handle hand does not hold card case
-            return null;
-        }
-        return this.cards.remove(index);
+    public void playCard(Card card){
+        this.cards.remove(card);
     }
 
     public boolean holdsCard(Card card){
